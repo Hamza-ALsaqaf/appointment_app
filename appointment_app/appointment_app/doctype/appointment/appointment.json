@@ -10,6 +10,7 @@
  "field_order": [
   "patient",
   "date",
+  "shift",
   "queue_number",
   "column_break_2wwv0",
   "clinic",
@@ -63,12 +64,18 @@
   {
    "fieldname": "column_break_2wwv0",
    "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "shift",
+   "fieldtype": "Link",
+   "label": "Shift",
+   "options": "Schedule Shift"
   }
  ],
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2024-03-09 14:16:23.147634",
+ "modified": "2024-03-10 12:59:18.280609",
  "modified_by": "Administrator",
  "module": "Appointment App",
  "name": "Appointment",
