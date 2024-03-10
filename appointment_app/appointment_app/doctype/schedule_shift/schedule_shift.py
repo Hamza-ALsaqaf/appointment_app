@@ -3,6 +3,7 @@
 
 # import frappe
 from frappe.model.document import Document
-
+from frappe.utils import format_time
 class ScheduleShift(Document):
-	pass
+	def before_save(self):
+		self.title=self.start_time+"-"+self.end_time
