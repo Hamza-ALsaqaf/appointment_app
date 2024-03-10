@@ -2,7 +2,23 @@
 // For license information, please see license.txt
 
 frappe.ui.form.on('Appointment', {
-	// refresh: function(frm) {
-
-	// }
+	refresh: function(frm) {
+		frm.set_query('shift', function (doc) {
+			return {
+				filters: {
+					"clinic":doc.clinic
+				}
+			};
+		});
+	},
+	onload:function(frm)
+	{
+		frm.set_query('shift', function (doc) {
+			return {
+				filters: {
+					"clinic": doc.clinic,
+				}
+			};
+		});
+	}
 });
