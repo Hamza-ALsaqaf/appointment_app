@@ -1,37 +1,18 @@
 {
  "actions": [],
  "allow_rename": 1,
- "creation": "2024-03-09 15:31:32.884744",
+ "creation": "2024-03-10 13:59:32.445824",
  "default_view": "List",
  "doctype": "DocType",
  "editable_grid": 1,
  "engine": "InnoDB",
  "field_order": [
-  "start_time",
-  "end_time",
-  "title",
-  "clinic"
+  "clinic",
+  "date",
+  "shift",
+  "queue"
  ],
  "fields": [
-  {
-   "fieldname": "start_time",
-   "fieldtype": "Time",
-   "in_list_view": 1,
-   "label": "Start Time",
-   "reqd": 1
-  },
-  {
-   "fieldname": "end_time",
-   "fieldtype": "Time",
-   "in_list_view": 1,
-   "label": "End Time",
-   "reqd": 1
-  },
-  {
-   "fieldname": "title",
-   "fieldtype": "Data",
-   "label": "Title"
-  },
   {
    "fieldname": "clinic",
    "fieldtype": "Link",
@@ -39,14 +20,35 @@
    "label": "Clinic",
    "options": "Clinic",
    "reqd": 1
+  },
+  {
+   "fieldname": "date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "Date",
+   "reqd": 1
+  },
+  {
+   "fieldname": "shift",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Shift",
+   "options": "Schedule Shift",
+   "reqd": 1
+  },
+  {
+   "fieldname": "queue",
+   "fieldtype": "Table",
+   "label": "Queue",
+   "options": "Appointment Queue Itme"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-03-10 14:08:05.245191",
+ "modified": "2024-03-10 14:04:05.822767",
  "modified_by": "Administrator",
  "module": "Appointment App",
- "name": "Schedule Shift",
+ "name": "Appointment Queue",
  "owner": "Administrator",
  "permissions": [
   {
@@ -63,9 +65,10 @@
   }
  ],
  "quick_entry": 1,
- "show_title_field_in_link": 1,
  "sort_field": "modified",
  "sort_order": "DESC",
  "states": [],
- "title_field": "title"
+ "track_changes": 1,
+ "track_seen": 1,
+ "track_views": 1
 }
