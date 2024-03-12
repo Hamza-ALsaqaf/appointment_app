@@ -7,7 +7,7 @@
  "allow_print": 0,
  "anonymous": 0,
  "apply_document_permissions": 0,
- "button_label": "Book",
+ "button_label": "Book Appointment",
  "creation": "2024-03-09 15:50:04.415126",
  "doc_type": "Appointment",
  "docstatus": 0,
@@ -18,7 +18,7 @@
  "list_columns": [],
  "login_required": 0,
  "max_attachment_size": 0,
- "modified": "2024-03-10 13:12:11.005197",
+ "modified": "2024-03-11 14:27:21.632116",
  "modified_by": "Administrator",
  "module": "Appointment App",
  "name": "book-appointment",
@@ -30,6 +30,7 @@
  "show_sidebar": 0,
  "success_message": "TODO: Display the queue number Assigned to him.",
  "success_title": "Appointment Booked",
+ "success_url": "/success",
  "title": "Book Appointment",
  "web_form_fields": [
   {
