@@ -10,6 +10,7 @@ class Appointment(Document):
 		# attach csrf token + queue number as key and queue number as value
 		frappe.cache().set_value(f"{frappe.session.sid}:queue_number", self.queue_number)
 		self.save(ignore_permissions=True)
+		self.send_confirmation_message()
 	def add_to_appointment_queue(self):
 		filters = {
 			"date": self.date,
@@ -33,15 +34,16 @@ class Appointment(Document):
 
 		return len(q.queue)
 	
-	# def add_to_appointment_queue(self):
-	# 	q= frappe.get_doc("Appointment Queue",{
-	# 		"date":self.date,
-	# 		"shift":self.shift,
-	# 		"clinic":self.clinic,
-	# 	})
-	# 	q.append("queue",{
-	# 		"appointment":self.name,
-	# 		"status":"pending"
-	# 	})
-	# 	q.save(ignore_permission=True)
-	# 	return len(q.queue)
+	
+	def send_confirmation_message(self):
+		shift_title = frappe.db.get_value("Schedule Shift", self.shift, "title")
+		message = f"Hi {self.patient_name}, your appointment for {self.clinic} on {self.date} ({shift_title}) has been booked. Your queue number is {self.queue_number}."
+
+		frappe.enqueue(
+			"appointments_app.utils.send_message",
+			body=message,
+			from_=frappe.db.get_single_value(
+				"Appointments Twilio Settings", "from_phone_number"
+			),
+			to=self.contact_number,
+		)
